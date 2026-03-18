@@ -215,7 +215,7 @@ const DonationPanel: React.FC<Props> = ({ campaign }) => {
           </div>
           <div className="px-2">
             <p className="font-poppins font-bold text-red-600 text-base sm:text-lg">
-              ₹{(remaining / 1000).toFixed(0)}K
+             ₹{(remaining / 100000).toFixed(1)}L
             </p>
             <p className="text-gray-400 text-xs mt-0.5">Still Needed</p>
           </div>

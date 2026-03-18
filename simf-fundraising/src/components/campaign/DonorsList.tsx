@@ -97,11 +97,12 @@ const DonorsList: React.FC<Props> = ({ donors, totalCount }) => {
       )}
 
       {/* Donate nudge */}
-      <div className="mt-5 bg-beige-50 rounded-xl p-4 text-center border border-beige-200">
-        <Heart className="w-5 h-5 text-primary-800 fill-primary-100 mx-auto mb-2" />
-        <p className="text-gray-600 text-xs leading-relaxed">
-          <span className="font-semibold text-gray-800">Be the next hero.</span> Even ₹100 makes
-          a real difference to {'{'}campaign.patientName{'}'}.
+      <div className="mt-4 bg-primary-50 rounded-xl px-4 py-3 flex items-center gap-2.5
+                border border-primary-100">
+  <Heart className="w-4 h-4 text-primary-500 fill-primary-200 shrink-0" />
+  <p className="text-gray-600 text-xs">
+    <span className="font-semibold text-gray-800">Be the next hero.</span>{' '}
+    Even ₹100 makes a real difference.
         </p>
       </div>
     </section>

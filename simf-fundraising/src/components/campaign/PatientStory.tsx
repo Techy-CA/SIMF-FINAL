@@ -89,25 +89,6 @@ const PatientStory: React.FC<Props> = ({ campaign }) => {
         </button>
       </div>
 
-      {/* Verified footer */}
-      <div className="mx-5 md:mx-6 mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div className="flex items-center gap-2.5 bg-primary-50 border border-primary-100
-                        rounded-xl p-3">
-          <ShieldCheck className="w-5 h-5 text-primary-700 shrink-0" aria-hidden="true" />
-          <div>
-            <p className="text-xs font-semibold text-primary-900">SIMF Volunteer Verified</p>
-            <p className="text-xs text-primary-700 mt-0.5">Family visited in person</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-2.5 bg-blue-50 border border-blue-100
-                        rounded-xl p-3">
-          <FileCheck className="w-5 h-5 text-blue-700 shrink-0" aria-hidden="true" />
-          <div>
-            <p className="text-xs font-semibold text-blue-900">Documents Reviewed</p>
-            <p className="text-xs text-blue-700 mt-0.5">Medical records &amp; hospital estimates</p>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

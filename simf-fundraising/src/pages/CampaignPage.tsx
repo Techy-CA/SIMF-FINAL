@@ -9,6 +9,8 @@ import PatientStory    from '../components/campaign/PatientStory';
 import DonorsList      from '../components/campaign/DonorsList';
 import CampaignUpdates from '../components/campaign/CampaignUpdates';
 import { campaignData } from '../data/campaignData';
+import MedicalReports from '../components/campaign/MedicalReports';
+// import CampaignFooter from '../components/campaign/CampaignFooter';
 
 const CampaignPage: React.FC = () => {
   const c   = campaignData;
@@ -161,6 +163,7 @@ const CampaignPage: React.FC = () => {
 
             {/* Story, Updates, Donors */}
             <PatientStory campaign={c} />
+            <MedicalReports images={c.reportImages} />
             <CampaignUpdates updates={c.updates} patientName={c.patientName} />
             <DonorsList
               donors={c.recentDonors}
@@ -194,7 +197,7 @@ const CampaignPage: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{c.organizer}</p>
-                    <p className="text-gray-400 text-xs">{c.organizerRelation} of {c.patientName}</p>
+                    <p className="text-gray-400 text-xs">{c.organizerRelation}</p>
                   </div>
                 </div>
                 <p className="text-gray-500 text-xs leading-relaxed">
@@ -267,6 +270,8 @@ const CampaignPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* <CampaignFooter /> */}
 
       {/* Mobile sticky donate footer */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t
