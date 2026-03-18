@@ -1,8 +1,8 @@
 import { useEffect }    from 'react';
 import { motion }       from 'framer-motion';
 import {
-  Share2, ShieldCheck, FileCheck,
-  Facebook, Twitter, Link2, Clock, AlertTriangle, Lock,
+  Share2, Clock, AlertTriangle, Lock,
+  Facebook, Twitter, Link2,
 } from 'lucide-react';
 import DonationPanel   from '../components/campaign/DonationPanel';
 import PatientStory    from '../components/campaign/PatientStory';
@@ -35,15 +35,12 @@ const CampaignPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#F5F4F0]">
 
-      {/* ── Sticky top bar ── */}
+      {/* Sticky top bar */}
       <div className="sticky top-0 z-40 bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-
-          {/* SIMF logo / wordmark */}
           <span className="font-poppins font-extrabold text-primary-600 text-lg tracking-tight">
             SIMF
           </span>
-
           <div className="flex items-center gap-2.5">
             <button
               onClick={handleShare}
@@ -54,18 +51,13 @@ const CampaignPage: React.FC = () => {
               <Share2 className="w-3.5 h-3.5" />
               Share
             </button>
-            <div className="hidden sm:flex items-center gap-1.5 bg-primary-50 text-primary-700
-                            text-xs font-semibold px-3 py-1.5 rounded-lg border border-primary-100">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Verified by SIMF
-            </div>
           </div>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-7">
 
-        {/* ── Breadcrumb ── */}
+        {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-5" aria-label="Breadcrumb">
           <span className="text-gray-500 font-medium">SIMF</span>
           <span>/</span>
@@ -74,10 +66,10 @@ const CampaignPage: React.FC = () => {
           <span className="text-gray-700 font-medium">Help {c.patientName}</span>
         </nav>
 
-        {/* ── Main grid ── */}
+        {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
 
-          {/* ─── Left: 3/5 ─── */}
+          {/* Left: 3/5 */}
           <div className="lg:col-span-3 space-y-5">
 
             {/* Campaign banner image */}
@@ -95,24 +87,19 @@ const CampaignPage: React.FC = () => {
               />
             </motion.div>
 
-            {/* ── Campaign title card ── */}
+            {/* Campaign title card */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.07 }}
               className="bg-white rounded-2xl border border-gray-100 p-5 md:p-6"
             >
-              {/* Badges */}
+              {/* Urgent badge */}
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <span className="flex items-center gap-1.5 bg-red-600 text-white
                                  text-[11px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
                   <AlertTriangle className="w-3 h-3" />
                   Urgent Medical Need
-                </span>
-                <span className="flex items-center gap-1 text-[11px] font-semibold text-primary-700
-                                 bg-primary-50 border border-primary-100 px-2.5 py-1 rounded">
-                  <ShieldCheck className="w-3 h-3" />
-                  SIMF Verified
                 </span>
               </div>
 
@@ -140,33 +127,11 @@ const CampaignPage: React.FC = () => {
               </div>
 
               {/* Urgency banner */}
-              <div className="bg-red-50 border-l-4 border-red-500 rounded-r-xl p-3.5 mb-5">
+              <div className="bg-red-50 border-l-4 border-red-500 rounded-r-xl p-3.5">
                 <p className="text-red-700 text-sm font-medium leading-relaxed flex items-start gap-2">
                   <Clock className="w-4 h-4 shrink-0 mt-0.5" />
                   {c.urgencyNote}
                 </p>
-              </div>
-
-              {/* Verification row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-gray-100">
-                <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 bg-primary-50 rounded-lg flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-4 h-4 text-primary-600" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-800">Volunteer Visited</p>
-                    <p className="text-xs text-gray-500 mt-0.5">SIMF team met the family in person</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
-                    <FileCheck className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-800">Documents Verified</p>
-                    <p className="text-xs text-gray-500 mt-0.5">Medical records &amp; estimates reviewed</p>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -197,10 +162,14 @@ const CampaignPage: React.FC = () => {
             {/* Story, Updates, Donors */}
             <PatientStory campaign={c} />
             <CampaignUpdates updates={c.updates} patientName={c.patientName} />
-            <DonorsList donors={c.recentDonors} totalCount={c.donorCount} patientName={c.patientName} />
+            <DonorsList
+              donors={c.recentDonors}
+              totalCount={c.donorCount}
+              patientName={c.patientName}
+            />
           </div>
 
-          {/* ─── Right: 2/5 sticky ─── */}
+          {/* Right: 2/5 sticky */}
           <div className="hidden lg:block lg:col-span-2">
             <div className="sticky top-20 space-y-4">
 
@@ -272,7 +241,7 @@ const CampaignPage: React.FC = () => {
                 </button>
               </div>
 
-              {/* Safe giving note */}
+              {/* Safe giving */}
               <div className="bg-primary-50 rounded-2xl border border-primary-100 p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <Lock className="w-3.5 h-3.5 text-primary-700 shrink-0" />
@@ -299,7 +268,7 @@ const CampaignPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Mobile sticky donate footer ── */}
+      {/* Mobile sticky donate footer */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t
                       border-gray-200 px-4 py-3 flex items-center justify-between gap-3">
         <div>
@@ -311,7 +280,9 @@ const CampaignPage: React.FC = () => {
           </p>
         </div>
         <button
-          onClick={() => document.querySelector('#donate-panel')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() =>
+            document.querySelector('#donate-panel')?.scrollIntoView({ behavior: 'smooth' })
+          }
           className="btn-primary text-sm px-6 py-3 flex-1 max-w-[180px]"
         >
           Donate Now
