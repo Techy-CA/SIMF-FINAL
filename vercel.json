@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd simf-fundraising && npm install && npm run build",
+  "outputDirectory": "simf-fundraising/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
